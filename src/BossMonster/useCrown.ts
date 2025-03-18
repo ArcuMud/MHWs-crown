@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { compress, decompress } from '@/utils/stringCompressor';
 import { BOSS_MONSTERS } from './constants';
@@ -17,10 +17,11 @@ function replaceCharAt(str: string, index: number, char: string): string {
 }
 
 export function useCrown() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { cid } = useParams();
+  const navigate = useNavigate();
   const [crowns, setCrowns] = useLocalStorage('crowns', initialCrowns);
 
-  const getC = () => searchParams.get('c') || initialCrowns;
+  const getC = () => cid || initialCrowns;
 
   const getCrown = (id: number) => {
     const c = getC();
@@ -33,20 +34,20 @@ export function useCrown() {
     const crownValue = decompress(c, BOSS_MONSTERS.length);
     const nextValue = replaceCharAt(crownValue, id - 1, value.toString());
     const compressed = compress(nextValue);
-    setSearchParams({ c: compressed });
+    navigate(`/crown/${compressed}`);
   };
 
   const saveCrowns = () => {
-    const c = searchParams.get('c') || genInitialSearchParams();
+    const c = cid || genInitialSearchParams();
     setCrowns(c);
   };
 
   const loadCrowns = () => {
-    setSearchParams({ c: crowns });
+    navigate(`/crown/${crowns}`);
   };
 
   const resetCrown = () => {
-    setSearchParams({ c: genInitialSearchParams() });
+    navigate(`/crown`);
   };
 
   return {
