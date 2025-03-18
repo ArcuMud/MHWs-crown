@@ -18,13 +18,11 @@ export function MobItem({ mob }: Props) {
   };
 
   const checkValue = getCrown(mob.id);
-  console.log('🚀 ~ MobItem ~ checkValue:', mob.id, checkValue);
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <div className={cn('mob', mob.className)}>
-          {mob.id}
           {mob.oneSize ? null : (
             <>
               <div
