@@ -13,7 +13,7 @@
   /* width: calc(var(--mob-grid-min-width) * 6px + 16px * 5); */
 
   .source {
-    background-image: url('./source.png');
+    background-image: url('./assets/source.png');
     background-size: calc(100% * 0.85);
     transform-origin: top left;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@
 
 .mob {
   /* source: https://x.com/kochamhw */
-  background-image: url('./mobs.png');
+  background-image: url('./assets/mobs.png');
 
   /* background-size: 900px 900px; */
 
@@ -47,7 +47,7 @@
     }
 
     &.check {
-      background-image: url('./check2.png');
+      background-image: url('./assets/check2.png');
       transform-origin: top left;
       background-repeat: no-repeat;
       background-position-x: center;
