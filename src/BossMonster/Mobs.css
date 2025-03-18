@@ -15,12 +15,6 @@
 
 .source {
   background-image: url('./source.png');
-  /* width: 147px; */
-  /* height: 194px; */
-  /* position: absolute; */
-  /* bottom: -24px; */
-  /* right: -24px; */
-  /* transform: scale(var(--mob-ratio)); */
   background-size: calc(100% * 0.85);
   transform-origin: top left;
   background-repeat: no-repeat;
@@ -47,8 +41,6 @@
 
 .mob .crown.check {
   background-image: url('./check2.png');
-  /* width: 80px; */
-  /* height: 68px; */
   background-size: calc(100% * 0.8);
   transform-origin: top left;
   background-repeat: no-repeat;

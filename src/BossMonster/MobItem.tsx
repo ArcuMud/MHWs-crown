@@ -6,6 +6,7 @@ import { Mob } from './types';
 type Props = {
   mob: Mob;
 };
+
 export function MobItem({ mob }: Props) {
   const [small, setSmall] = useState(false);
   const [big, setBig] = useState(false);
@@ -14,23 +15,10 @@ export function MobItem({ mob }: Props) {
     <Tooltip>
       <TooltipTrigger asChild>
         <div className={clsx('mob', mob.className)}>
-          {mob.noSize ? null : (
+          {mob.oneSize ? null : (
             <>
-              <div
-                className={clsx('crown', 'small', small && 'check')}
-                onClick={() => {
-                  console.count('🚀 ~ MobItem ~ small:');
-
-                  setSmall((val) => !val);
-                }}
-              />
-              <div
-                className={clsx('crown', 'big', big && 'check')}
-                onClick={() => {
-                  console.count('🚀 ~ MobItem ~ big:');
-                  setBig((val) => !val);
-                }}
-              />
+              <div className={clsx('crown', 'small', small && 'check')} onClick={() => setSmall((val) => !val)} />
+              <div className={clsx('crown', 'big', big && 'check')} onClick={() => setBig((val) => !val)} />
             </>
           )}
         </div>

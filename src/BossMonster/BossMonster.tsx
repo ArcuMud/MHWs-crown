@@ -4,7 +4,7 @@ import { MobItem } from './MobItem';
 
 import './Mobs.css';
 
-export function Mobs() {
+export function BossMonster() {
   return (
     <div className="mobs-grid m-10">
       {MOBS.map((mob) => (
