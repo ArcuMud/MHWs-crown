@@ -1,55 +1,77 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
+  # 當 push 到 main 分支時觸發部署
   push:
-    branches:
-      - main
+    branches: [main]
+  # 允許從 Actions 頁面手動觸發部署
+  workflow_dispatch:
+
+# 設置 GITHUB_TOKEN 的權限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 允許一個並發部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
-
-      - name: Install dependencies
-        uses: pnpm/action-setup@v4
         with:
-          version: 8.15.5
+          node-version: "20"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
           run_install: false
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Build project
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
         run: pnpm build
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: production-files
-          path: ./dist
+          path: dist
 
   deploy:
-    name: Deploy
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
+    
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        id: deployment
+        uses: actions/deploy-pages@v2
