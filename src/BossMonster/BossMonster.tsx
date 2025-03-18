@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { MOBS } from './constants';
+import { BOSS_MONSTERS } from './constants';
 import { MobItem } from './MobItem';
 
 import './Mobs.css';
@@ -7,7 +7,7 @@ import './Mobs.css';
 export function BossMonster() {
   return (
     <div className="mobs-grid m-10">
-      {MOBS.map((mob) => (
+      {BOSS_MONSTERS.map((mob) => (
         <Fragment key={mob.className}>
           <MobItem mob={mob} />
         </Fragment>

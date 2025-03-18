@@ -3,12 +3,14 @@ import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { CheckFlag, CheckFlagValue, Mob } from './types';
 import { hasFlag } from './utils';
+import { useQueryString } from './useQueryString';
 
 type Props = {
   mob: Mob;
 };
 
 export function MobItem({ mob }: Props) {
+  useQueryString();
   const [checkValue, setCheckValue] = useState<CheckFlagValue>(CheckFlag.None);
 
   const toggleCheck = (flag: CheckFlag) => {

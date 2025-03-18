@@ -1,6 +1,6 @@
 import { Mob } from './types';
 
-export const MOBS: Mob[] = [
+export const BOSS_MONSTERS: Mob[] = [
   { id: 1, name: 'Chatacabra', zhName: '纏蛙', className: 'chatacabra' },
   { id: 2, name: 'Quematrice', zhName: '炎尾龍', className: 'quematrice' },
   { id: 3, name: 'Lala Barina', zhName: '刺花蜘蛛', className: 'lala-barina' },
