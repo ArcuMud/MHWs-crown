@@ -6,7 +6,7 @@ import App from './App.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <>
-    <BrowserRouter basename="/mhws">
+    <BrowserRouter>
       <TooltipProvider>
         <App />
       </TooltipProvider>

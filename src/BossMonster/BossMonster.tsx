@@ -11,13 +11,21 @@ export function BossMonster() {
 
   return (
     <div className="flex m-10 gap-10">
-      <div className="mobs-grid">
-        {BOSS_MONSTERS.map((mob) => (
-          <Fragment key={mob.className}>
-            <MobItem mob={mob} />
-          </Fragment>
-        ))}
-        <div className="source" />
+      <div>
+        <div className="mobs-grid">
+          {BOSS_MONSTERS.map((mob) => (
+            <Fragment key={mob.className}>
+              <MobItem mob={mob} />
+            </Fragment>
+          ))}
+          <div className="source" />
+        </div>
+        <p className="text-center mt-4">
+          {'Picture source: '}
+          <a href="https://x.com/kochamhw" target="_blank" rel="noopener noreferrer">
+            https://x.com/kochamhw
+          </a>
+        </p>
       </div>
       <div className="flex flex-col justify-center gap-4">
         <Button onClick={() => saveCrowns()}>Save</Button>
