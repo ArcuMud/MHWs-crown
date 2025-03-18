@@ -1,17 +1,24 @@
+import { Fragment } from 'react';
 import { clsx } from 'clsx';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { MOBS } from './constants';
 import './Mobs.css';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@radix-ui/react-tooltip';
-import { Fragment } from 'react';
 
 export function Mobs() {
   return (
-    <div className="mobs-grid">
+    <div className="mobs-grid m-10">
       {MOBS.map((mob) => (
         <Fragment key={mob.className}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className={clsx(['mob', mob.className])} />
+              <div className={clsx(['mob', mob.className])}>
+                {mob.noSize ? null : (
+                  <>
+                    <div className="crown small" />
+                    <div className="crown big" />
+                  </>
+                )}
+              </div>
             </TooltipTrigger>
             <TooltipContent side="top" align="center">
               <p>{mob.zhName}</p>

@@ -4,9 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import '@radix-ui/colors/black-alpha.css';
-@import '@radix-ui/colors/violet.css';
-
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

@@ -1,6 +1,6 @@
 :root {
   --mob-origin-width: 150;
-  --mob-grid-min-width: 96;
+  --mob-grid-min-width: 108;
   --mob-ratio: calc(var(--mob-grid-min-width) / var(--mob-origin-width));
   --mob-grid-min-width-px: calc(var(--mob-grid-min-width) * 1px);
 }
@@ -9,19 +9,21 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(6, minmax(var(--mob-grid-min-width-px), 1fr));
-  gap: 16px;
+  gap: 24px;
   width: calc(var(--mob-grid-min-width) * 6px + 16px * 5);
-  padding: 40px;
 }
 
 .source {
   background-image: url('./source.png');
-  width: 147px;
-  height: 194px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: scale(var(--mob-ratio));
+  /* width: 147px; */
+  /* height: 194px; */
+  /* position: absolute; */
+  /* bottom: -24px; */
+  /* right: -24px; */
+  /* transform: scale(var(--mob-ratio)); */
+  background-size: calc(100% * 0.85);
+  transform-origin: top left;
+  background-repeat: no-repeat;
 }
 
 .mob {
@@ -34,6 +36,25 @@
   width: 100%;
   padding-bottom: 120%;
   background-size: 600% 500%;
+}
+
+.mob .crown {
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  width: 50%;
+}
+
+.mob .crown.small {
+  left: 0;
+  height: 35px;
+  border: solid 1px blue;
+}
+
+.mob .crown.big {
+  right: 0;
+  height: 45px;
+  border: solid 1px blue;
 }
 
 /* 纏蛙 */
