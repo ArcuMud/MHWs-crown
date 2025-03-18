@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(var(--mob-grid-min-width-px), 1fr));
   gap: 24px;
-  width: calc(var(--mob-grid-min-width) * 6px + 16px * 5);
+  /* width: calc(var(--mob-grid-min-width) * 6px + 16px * 5); */
 
   .source {
     background-image: url('./source.png');

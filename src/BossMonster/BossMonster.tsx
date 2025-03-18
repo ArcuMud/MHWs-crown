@@ -1,18 +1,29 @@
 import { Fragment } from 'react';
+import { Button } from '@/components/ui/button';
+import { useCrown } from './useCrown';
 import { BOSS_MONSTERS } from './constants';
 import { MobItem } from './MobItem';
 
 import './Mobs.css';
 
 export function BossMonster() {
+  const { saveCrowns, loadCrowns, resetCrown } = useCrown();
+
   return (
-    <div className="mobs-grid m-10">
-      {BOSS_MONSTERS.map((mob) => (
-        <Fragment key={mob.className}>
-          <MobItem mob={mob} />
-        </Fragment>
-      ))}
-      <div className="source" />
+    <div className="flex m-10 gap-10">
+      <div className="mobs-grid">
+        {BOSS_MONSTERS.map((mob) => (
+          <Fragment key={mob.className}>
+            <MobItem mob={mob} />
+          </Fragment>
+        ))}
+        <div className="source" />
+      </div>
+      <div className="flex flex-col justify-center gap-4">
+        <Button onClick={() => saveCrowns()}>Save</Button>
+        <Button onClick={() => loadCrowns()}>Load</Button>
+        <Button onClick={() => resetCrown()}>Reset</Button>
+      </div>
     </div>
   );
 }
