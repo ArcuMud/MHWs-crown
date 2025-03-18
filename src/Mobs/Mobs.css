@@ -45,16 +45,25 @@
   width: 50%;
 }
 
+.mob .crown.check {
+  background-image: url('./check2.png');
+  /* width: 80px; */
+  /* height: 68px; */
+  background-size: calc(100% * 0.8);
+  transform-origin: top left;
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+  background-position-y: 4px;
+}
+
 .mob .crown.small {
   left: 0;
-  height: 35px;
-  border: solid 1px blue;
+  height: 45px;
 }
 
 .mob .crown.big {
   right: 0;
   height: 45px;
-  border: solid 1px blue;
 }
 
 /* 纏蛙 */

@@ -1,9 +1,4 @@
-type Mob = {
-  name: string;
-  zhName: string;
-  className: string;
-  noSize?: boolean;
-};
+import { Mob } from './types';
 
 export const MOBS: Mob[] = [
   { name: 'Chatacabra', zhName: '纏蛙', className: 'chatacabra' },
