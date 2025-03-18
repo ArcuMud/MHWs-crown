@@ -1,0 +1,151 @@
+.mob {
+  /* source: https://x.com/kochamhw/media */
+  background-image: url('./mobs.png');
+  width: 150px;
+  height: 180px;
+}
+
+/* 纏蛙 */
+.chatacabra {
+  background-position: 0 0;
+}
+
+/* 炎尾龍 */
+.quematrice {
+  background-position: -150px 0;
+}
+
+/* 刺花蜘蛛 */
+.lala-barina {
+  background-position: -300px 0;
+}
+
+/* 桃毛獸王 */
+.congalala {
+  background-position: -450px 0;
+}
+
+/* 沙海龍 */
+.balahara {
+  background-position: -600px 0;
+}
+
+/* 闢獸 */
+.doshaguma {
+  background-position: -750px 0;
+}
+
+/* 波衣龍 */
+.uth-duna {
+  background-position: 0 -180px;
+}
+
+/* 沼噴龍 */
+.rompopolo {
+  background-position: -150px -180px;
+}
+
+/* 煌雷龍 */
+.rey-dau {
+  background-position: -300px -180px;
+}
+
+/* 影蜘蛛 */
+.nerscylla {
+  background-position: -450px -180px;
+}
+
+/* 風鋏龍 */
+.hirabami {
+  background-position: -600px -180px;
+}
+
+/* 赫猿獸 */
+.ajarakan {
+  background-position: -750px -180px;
+}
+
+/* 獄焰鱆 */
+.nu-udra {
+  background-position: 0 -360px;
+}
+
+/* 護闢獸 */
+.guardian-doshaguma {
+  background-position: -150px -360px;
+}
+
+/* 護火龍 */
+.guardian-rathalos {
+  background-position: -300px -360px;
+}
+
+/* 凍峰龍 */
+.jin-dahaad {
+  background-position: -450px -360px;
+}
+
+/* 護兇爪龍 */
+.guardian-ebony-odogaron {
+  background-position: -600px -360px;
+}
+
+/* 暗器鱆 */
+.xu-wu {
+  background-position: -750px -360px;
+}
+
+/* 護鎖刃龍 */
+.guardian-arkveld {
+  background-position: 0 -540px;
+}
+
+/* 白熾龍 */
+.zoh-shia {
+  background-position: -150px -540px;
+}
+
+/* 怪鳥 */
+.yian-Kut-Ku {
+  background-position: -300px -540px;
+}
+
+/* 毒怪鳥 */
+.gypceros {
+  background-position: -450px -540px;
+}
+
+/* 雌火龍 */
+.rathian {
+  background-position: -600px -540px;
+}
+
+/* 護雷顎龍 */
+.guardian-fulgur-anjanath {
+  background-position: -750px -540px;
+}
+
+/* 火龍 */
+.rathalos {
+  background-position: 0 -720px;
+}
+
+/* 鎧龍 */
+.gravios {
+  background-position: -150px -720px;
+}
+
+/* 雪獅子王 */
+.blangonga {
+  background-position: -300px -720px;
+}
+
+/* 黑蝕龍 */
+.gore-magala {
+  background-position: -450px -720px;
+}
+
+/* 鎖刃龍 */
+.arkveld {
+  background-position: -600px -720px;
+}
