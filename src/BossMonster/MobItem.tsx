@@ -1,24 +1,34 @@
 import { useState } from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { Mob } from './types';
+import { CheckFlag, CheckFlagValue, Mob } from './types';
+import { hasFlag } from './utils';
 
 type Props = {
   mob: Mob;
 };
 
 export function MobItem({ mob }: Props) {
-  const [small, setSmall] = useState(false);
-  const [big, setBig] = useState(false);
+  const [checkValue, setCheckValue] = useState<CheckFlagValue>(CheckFlag.None);
+
+  const toggleCheck = (flag: CheckFlag) => {
+    setCheckValue((val) => ((val & flag) === flag ? val & ~flag : val | flag) as CheckFlagValue);
+  };
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div className={clsx('mob', mob.className)}>
+        <div className={cn('mob', mob.className)}>
           {mob.oneSize ? null : (
             <>
-              <div className={clsx('crown', 'small', small && 'check')} onClick={() => setSmall((val) => !val)} />
-              <div className={clsx('crown', 'big', big && 'check')} onClick={() => setBig((val) => !val)} />
+              <div
+                className={cn('crown', 'small', hasFlag(checkValue, CheckFlag.Small) && 'check')}
+                onClick={() => toggleCheck(CheckFlag.Small)}
+              />
+              <div
+                className={cn('crown', 'big', hasFlag(checkValue, CheckFlag.Big) && 'check')}
+                onClick={() => toggleCheck(CheckFlag.Big)}
+              />
             </>
           )}
         </div>

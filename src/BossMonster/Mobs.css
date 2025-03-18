@@ -11,13 +11,13 @@
   grid-template-columns: repeat(6, minmax(var(--mob-grid-min-width-px), 1fr));
   gap: 24px;
   width: calc(var(--mob-grid-min-width) * 6px + 16px * 5);
-}
 
-.source {
-  background-image: url('./source.png');
-  background-size: calc(100% * 0.85);
-  transform-origin: top left;
-  background-repeat: no-repeat;
+  .source {
+    background-image: url('./source.png');
+    background-size: calc(100% * 0.85);
+    transform-origin: top left;
+    background-repeat: no-repeat;
+  }
 }
 
 .mob {
@@ -30,32 +30,38 @@
   width: 100%;
   padding-bottom: 120%;
   background-size: 600% 500%;
-}
 
-.mob .crown {
-  position: absolute;
-  bottom: 0;
-  cursor: pointer;
-  width: 50%;
-}
+  .crown {
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    width: 50%;
 
-.mob .crown.check {
-  background-image: url('./check2.png');
-  background-size: calc(100% * 0.8);
-  transform-origin: top left;
-  background-repeat: no-repeat;
-  background-position-x: 2px;
-  background-position-y: 4px;
-}
+    &.small {
+      left: 0;
+      height: 45px;
+    }
+    &.big {
+      right: 0;
+      height: 45px;
+    }
 
-.mob .crown.small {
-  left: 0;
-  height: 45px;
-}
+    &.check {
+      background-image: url('./check2.png');
+      transform-origin: top left;
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: 2px;
 
-.mob .crown.big {
-  right: 0;
-  height: 45px;
+      &.small {
+        background-size: calc(100% * 0.8);
+      }
+
+      &.big {
+        background-size: calc(100% * 1);
+      }
+    }
+  }
 }
 
 /* 纏蛙 */
