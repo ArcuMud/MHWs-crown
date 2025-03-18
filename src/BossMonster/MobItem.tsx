@@ -1,26 +1,30 @@
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { CheckFlag, CheckFlagValue, Mob } from './types';
 import { hasFlag } from './utils';
-import { useQueryString } from './useQueryString';
+import { useCrown } from './useCrown';
 
 type Props = {
   mob: Mob;
 };
 
 export function MobItem({ mob }: Props) {
-  useQueryString();
-  const [checkValue, setCheckValue] = useState<CheckFlagValue>(CheckFlag.None);
+  const { getCrown, setCrown } = useCrown();
 
   const toggleCheck = (flag: CheckFlag) => {
-    setCheckValue((val) => ((val & flag) === flag ? val & ~flag : val | flag) as CheckFlagValue);
+    const value = getCrown(mob.id);
+    const nextValue = ((value & flag) === flag ? value & ~flag : value | flag) as CheckFlagValue;
+    setCrown(mob.id, nextValue);
   };
+
+  const checkValue = getCrown(mob.id);
+  console.log('🚀 ~ MobItem ~ checkValue:', mob.id, checkValue);
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <div className={cn('mob', mob.className)}>
+          {mob.id}
           {mob.oneSize ? null : (
             <>
               <div
