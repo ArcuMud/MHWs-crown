@@ -1,17 +1,15 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 當 push 到 main 分支時觸發部署
   push:
-    branches: [main]
-  # 允許從 Actions 頁面手動觸發部署
+    branches: [ main ]
   workflow_dispatch:
 
-# 設置 GITHUB_TOKEN 的權限
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read # 添加這個權限
 
 # 允許一個並發部署
 concurrency:
@@ -21,10 +19,16 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -61,14 +65,6 @@ jobs:
         with:
           path: ./dist
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
