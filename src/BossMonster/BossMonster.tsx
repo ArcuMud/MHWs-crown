@@ -11,7 +11,7 @@ export function BossMonster() {
 
   return (
     <div className="flex m-10 gap-10">
-      <div>
+      <div className="relative">
         <div className="mobs-grid">
           {BOSS_MONSTERS.map((mob) => (
             <Fragment key={mob.className}>
@@ -32,7 +32,7 @@ export function BossMonster() {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center gap-4 relative">
+      <div className="flex flex-col justify-center gap-4">
         <Button onClick={() => saveCrowns()}>Save</Button>
         <Button onClick={() => loadCrowns()}>Load</Button>
         <Button onClick={() => resetCrown()}>Reset</Button>
