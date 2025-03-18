@@ -39,6 +39,7 @@ export function MobItem({ mob }: Props) {
       </TooltipTrigger>
       <TooltipContent side="top" align="center">
         <p>{mob.zhName}</p>
+        <p>{mob.name}</p>
       </TooltipContent>
     </Tooltip>
   );

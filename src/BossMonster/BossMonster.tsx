@@ -20,6 +20,10 @@ export function BossMonster() {
           ))}
           <div className="source" />
         </div>
+        <div className="flex red-arrow items-center justify-center">
+          <div className="img" />
+          <div>Click here!</div>
+        </div>
         <p className="text-center mt-4">
           {'Picture source: '}
           <a href="https://x.com/kochamhw" target="_blank" rel="noopener noreferrer">
@@ -27,7 +31,8 @@ export function BossMonster() {
           </a>
         </p>
       </div>
-      <div className="flex flex-col justify-center gap-4">
+
+      <div className="flex flex-col justify-center gap-4 relative">
         <Button onClick={() => saveCrowns()}>Save</Button>
         <Button onClick={() => loadCrowns()}>Load</Button>
         <Button onClick={() => resetCrown()}>Reset</Button>

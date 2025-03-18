@@ -5,6 +5,20 @@
   --mob-grid-min-width-px: calc(var(--mob-grid-min-width) * 1px);
 }
 
+.red-arrow {
+  position: absolute;
+  top: 100px;
+  right: 254px;
+  color: brown;
+  font-weight: 600;
+
+  .img {
+    width: 150px;
+    height: 99px;
+    background-image: url('/assets/red-arrow.png');
+  }
+}
+
 .mobs-grid {
   position: relative;
   display: grid;
