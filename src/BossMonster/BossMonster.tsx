@@ -2,6 +2,7 @@ import { Fragment, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { captureScreenshot } from '@/utils/captureScreenshot';
+import { getCurrentTimeFormatted } from '@/utils/getCurrentTimeFormatted';
 
 import { BOSS_MONSTERS } from './constants';
 import { MobItem } from './MobItem';
@@ -17,11 +18,13 @@ export function BossMonster() {
   const handleCapture = async () => {
     if (!targetRef.current) return;
 
+    const timestamp = getCurrentTimeFormatted();
+
     try {
       await captureScreenshot(targetRef.current, {
         backgroundColor: '#ffffff',
         quality: 0.8,
-        filename: 'mhws-crowns.jpg',
+        filename: `mhws-crowns-${timestamp}.jpg`,
         removeGridGap: true,
         width: 900,
         height: 900,
