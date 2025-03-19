@@ -1,8 +1,9 @@
-import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
+
 import { CheckFlag, CheckFlagValue, Mob } from './types';
-import { hasFlag } from './utils';
 import { useCrown } from './useCrown';
+import { hasFlag } from './utils';
 
 type Props = {
   mob: Mob;

@@ -1,6 +1,8 @@
-import { useParams, useNavigate } from 'react-router';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import { useNavigate,useParams } from 'react-router';
+
 import { compress, decompress } from '@/utils/stringCompressor';
+
 import { BOSS_MONSTERS } from './constants';
 import { CheckFlag } from './types';
 

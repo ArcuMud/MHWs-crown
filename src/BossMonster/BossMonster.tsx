@@ -1,18 +1,40 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
+
 import { Button } from '@/components/ui/button';
-import { useCrown } from './useCrown';
+import { captureScreenshot } from '@/utils/captureScreenshot';
+
 import { BOSS_MONSTERS } from './constants';
 import { MobItem } from './MobItem';
+import { useCrown } from './useCrown';
 
 import './Mobs.css';
 
 export function BossMonster() {
+  const targetRef = useRef<HTMLDivElement>(null);
+
   const { saveCrowns, loadCrowns, resetCrown } = useCrown();
+
+  const handleCapture = async () => {
+    if (!targetRef.current) return;
+
+    try {
+      await captureScreenshot(targetRef.current, {
+        backgroundColor: '#ffffff',
+        quality: 0.8,
+        filename: 'mhws-crowns.jpg',
+        removeGridGap: true,
+        width: 900,
+        height: 900,
+      });
+    } catch (error) {
+      console.error('截圖失敗:', error);
+    }
+  };
 
   return (
     <div className="flex m-10 gap-10">
       <div className="relative">
-        <div className="mobs-grid">
+        <div ref={targetRef} className="mobs-grid">
           {BOSS_MONSTERS.map((mob) => (
             <Fragment key={mob.className}>
               <MobItem mob={mob} />
@@ -36,6 +58,7 @@ export function BossMonster() {
         <Button onClick={() => saveCrowns()}>Save</Button>
         <Button onClick={() => loadCrowns()}>Load</Button>
         <Button onClick={() => resetCrown()}>Reset</Button>
+        <Button onClick={() => handleCapture()}>Export</Button>
       </div>
     </div>
   );
