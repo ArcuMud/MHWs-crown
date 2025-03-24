@@ -10,7 +10,7 @@ import { useCrown } from './useCrown';
 
 import './Mobs.css';
 
-export function BossMonster() {
+export function Crown() {
   const targetRef = useRef<HTMLDivElement>(null);
 
   const { saveCrowns, loadCrowns, resetCrown } = useCrown();
@@ -35,7 +35,7 @@ export function BossMonster() {
   };
 
   return (
-    <div className="flex m-10 gap-10">
+    <>
       <div className="relative">
         <div ref={targetRef} className="mobs-grid">
           {BOSS_MONSTERS.map((mob) => (
@@ -63,6 +63,8 @@ export function BossMonster() {
         <Button onClick={() => resetCrown()}>Reset</Button>
         <Button onClick={() => handleCapture()}>Export</Button>
       </div>
-    </div>
+    </>
   );
 }
+
+export default Crown;

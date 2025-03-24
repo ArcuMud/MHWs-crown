@@ -1,17 +1,25 @@
 import { Navigate, Route, Routes } from 'react-router';
 
-import { BossMonster } from './BossMonster/BossMonster';
+import { Crown } from './Crown/Crown';
+import { Mission } from './Mission/Mission';
+import { AppLayout } from './AppLayout';
 
 function App() {
   return (
-    <Routes>
-      <Route index element={<Navigate to="crown" replace />} />
+    <>
+      <Routes>
+        <Route index element={<Navigate to="crown" replace />} />
 
-      <Route path="crown">
-        <Route index element={<BossMonster />} />
-        <Route path=":cid" element={<BossMonster />} />
-      </Route>
-    </Routes>
+        <Route path="crown" element={<AppLayout />}>
+          <Route index element={<Crown />} />
+          <Route path=":cid" element={<Crown />} />
+        </Route>
+
+        <Route path="mission" element={<AppLayout />}>
+          <Route index element={<Mission />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
