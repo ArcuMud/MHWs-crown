@@ -1,12 +1,14 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { BossMonster } from '@/types/BossMonster';
 
-import { CheckFlag, CheckFlagValue, Mob } from './types';
 import { useCrown } from './useCrown';
 import { hasFlag } from './utils';
 
+import type { CheckFlag, CheckFlagValue } from './types';
+
 type Props = {
-  mob: Mob;
+  mob: BossMonster;
 };
 
 export function MobItem({ mob }: Props) {

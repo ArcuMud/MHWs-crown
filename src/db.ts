@@ -4,10 +4,15 @@ import Dexie, { type EntityTable } from 'dexie';
 interface Mission {
   id: number;
   star: number;
+
   target1: string;
-  target2: string;
+  target1Tempered: boolean;
   target1Star: number;
+
+  target2: string;
+  target2Tempered: boolean;
   target2Star: number;
+
   time: number;
   reward: string;
   timeRemaining: number;

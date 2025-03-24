@@ -1,9 +1,9 @@
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { useNavigate,useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import { compress, decompress } from '@/utils/stringCompressor';
 
-import { BOSS_MONSTERS } from './constants';
+import { BOSS_MONSTERS } from '../constants/BOSS_MONSTERS';
 import { CheckFlag } from './types';
 
 function genInitialSearchParams() {

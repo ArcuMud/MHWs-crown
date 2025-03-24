@@ -27,7 +27,7 @@ export function AppLayout() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="flex m-4 gap-10">
+      <div className="flex flex-col m-4 gap-10">
         <Outlet />
       </div>
     </div>

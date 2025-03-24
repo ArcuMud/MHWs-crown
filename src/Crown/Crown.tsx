@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { captureScreenshot } from '@/utils/captureScreenshot';
 import { getCurrentTimeFormatted } from '@/utils/getCurrentTimeFormatted';
 
-import { BOSS_MONSTERS } from './constants';
+import { BOSS_MONSTERS } from '../constants/BOSS_MONSTERS';
+
 import { MobItem } from './MobItem';
 import { useCrown } from './useCrown';
 
@@ -66,5 +67,3 @@ export function Crown() {
     </>
   );
 }
-
-export default Crown;
