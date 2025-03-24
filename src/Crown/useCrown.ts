@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 
 import { compress, decompress } from '@/utils/stringCompressor';
 
-import { BOSS_MONSTERS } from '../constants/BOSS_MONSTERS';
+import { BOSS_MONSTERS } from '../constants/BossMonster';
 import { CheckFlag } from './types';
 
 function genInitialSearchParams() {

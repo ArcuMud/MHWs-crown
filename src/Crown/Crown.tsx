@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { captureScreenshot } from '@/utils/captureScreenshot';
 import { getCurrentTimeFormatted } from '@/utils/getCurrentTimeFormatted';
 
-import { BOSS_MONSTERS } from '../constants/BOSS_MONSTERS';
+import { BOSS_MONSTERS } from '../constants/BossMonster';
 
 import { MobItem } from './MobItem';
 import { useCrown } from './useCrown';
