@@ -3,6 +3,8 @@ import { Pencil2Icon, TrashIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
+import { MissionForm } from './MissionForm';
+
 export function Mission() {
   return (
     <>

@@ -36,7 +36,7 @@ export function Crown() {
   };
 
   return (
-    <>
+    <div className="flex">
       <div className="relative">
         <div ref={targetRef} className="mobs-grid">
           {BOSS_MONSTERS.map((mob) => (
@@ -64,6 +64,6 @@ export function Crown() {
         <Button onClick={() => resetCrown()}>Reset</Button>
         <Button onClick={() => handleCapture()}>Export</Button>
       </div>
-    </>
+    </div>
   );
 }

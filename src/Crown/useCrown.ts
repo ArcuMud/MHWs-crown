@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { compress, decompress } from '@/utils/stringCompressor';
 
 import { BOSS_MONSTERS } from '../constants/BossMonster';
+
 import { CheckFlag } from './types';
 
 function genInitialSearchParams() {
@@ -19,11 +20,11 @@ function replaceCharAt(str: string, index: number, char: string): string {
 }
 
 export function useCrown() {
-  const { cid } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [crowns, setCrowns] = useLocalStorage('crowns', initialCrowns);
 
-  const getC = () => cid || initialCrowns;
+  const getC = () => id || initialCrowns;
 
   const getCrown = (id: number) => {
     const c = getC();
@@ -40,7 +41,7 @@ export function useCrown() {
   };
 
   const saveCrowns = () => {
-    const c = cid || genInitialSearchParams();
+    const c = id || genInitialSearchParams();
     setCrowns(c);
   };
 
